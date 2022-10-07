@@ -475,6 +475,7 @@ svg:hover, svg:focus {
   position: relative;
   background-color: var(--clr-primary-800);
   border: 3px solid var(--clr-light-400);
+  z-index: 0;
 }
 .simon-game__tile {
   position: absolute;
@@ -484,9 +485,11 @@ svg:hover, svg:focus {
   transform-origin: top right;
   border-radius: 0 0 0 100%;
   background-color: var(--tile-color);
+  z-index: 1;
 }
 .simon-game__tile--active {
   box-shadow: 0 0 0.5rem 0.5rem var(--tile-color);
+  z-index: 2;
 }
 .simon-game__tile--inactive {
   background-color: var(--tile-color-opaque);
@@ -519,6 +522,7 @@ svg:hover, svg:focus {
   translate: -50% -50%;
   display: grid;
   place-items: center;
+  z-index: 3;
 }
 .simon-game__inner-circle span {
   position: absolute;

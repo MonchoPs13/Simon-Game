@@ -3,8 +3,6 @@ const sections = document.querySelectorAll('section');
 nav.addEventListener('click', pageChange);
 
 function pageChange(e) {
-	// alert(e.target);
-	console.log(e.target);
 	if (e.target === this) return;
 	e.preventDefault();
 
@@ -24,7 +22,3 @@ function pageChange(e) {
 		section.style.translate = `${sectionTranslate - translateValue}%`;
 	});
 }
-
-document.addEventListener('click', function(e) {
-	alert(e.target.classList);
-});

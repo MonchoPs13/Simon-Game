@@ -83,6 +83,7 @@
 		position: relative;
 		background-color: var(--clr-primary-800);
 		border: 3px solid var(--clr-light-400);
+		z-index: 0;
 	}
 
 	&__tile {
@@ -93,9 +94,11 @@
 		transform-origin: top right;
 		border-radius: 0 0 0 100%;
 		background-color: var(--tile-color);
+		z-index: 1;
 
 		&--active {
 			box-shadow: 0 0 0.5rem 0.5rem var(--tile-color);
+			z-index: 2;
 		}
 
 		&--inactive {
@@ -137,6 +140,7 @@
 		translate: -50% -50%;
 		display: grid;
 		place-items: center;
+		z-index: 3;
 
 		& span {
 			position: absolute;
