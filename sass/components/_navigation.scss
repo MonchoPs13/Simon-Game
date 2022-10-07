@@ -16,9 +16,13 @@
 		margin-inline: auto;
 		height: 100%;
 		display: flex;
-		justify-content: space-around;
+		// justify-content: space-around;
 		list-style: none;
 		font-size: 1.5rem;
+	}
+
+	&__item {
+		width: 20%;
 	}
 
 	&__link {
