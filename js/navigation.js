@@ -26,5 +26,5 @@ function pageChange(e) {
 }
 
 document.addEventListener('click', function(e) {
-	alert(e.target);
+	alert(e.target.classList);
 });
