@@ -497,17 +497,17 @@ svg:hover, svg:focus {
 .simon-game__tile--green {
   --tile-color: var(--clr-green);
   --tile-color-opaque: var(--clr-green-opaque);
-  rotate: 90deg;
+  transform: rotate(90deg);
 }
 .simon-game__tile--red {
   --tile-color: var(--clr-red);
   --tile-color-opaque: var(--clr-red-opaque);
-  rotate: 180deg;
+  transform: rotate(180deg);
 }
 .simon-game__tile--blue {
   --tile-color: var(--clr-blue);
   --tile-color-opaque: var(--clr-blue-opaque);
-  rotate: 270deg;
+  transform: rotate(270deg);
 }
 .simon-game__tile--yellow {
   --tile-color: var(--clr-yellow);

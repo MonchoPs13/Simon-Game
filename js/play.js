@@ -60,6 +60,7 @@ class SimonGame {
 
 	_tileHandler(e) {
 		console.log(e.target);
+		e.stopPropagation();
 		alert(e.target.classList);
 		if (
 			!e.target.classList.contains('simon-game__tile') ||
