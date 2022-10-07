@@ -5,12 +5,13 @@
 	transition: translate 0.5s;
 	top: 0;
 	left: 0;
-    display: flex;
-    flex-direction: column;
+	display: flex;
+	flex-direction: column;
+	z-index: 8;
 
-    & > header {
-        margin-bottom: 2rem;
-    }
+	& > header {
+		margin-bottom: 2rem;
+	}
 
 	&.inactive-right {
 		translate: 100% 0;
