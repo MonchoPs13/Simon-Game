@@ -1,0 +1,14 @@
+.button {
+	background-color: var(--clr-primary-800);
+    min-width: 7em;
+	padding: 0.7em 1em;
+	border-radius: 0.5rem;
+	font-size: inherit;
+	transition: translate 0.2s, color 0.2s;
+    box-shadow: 0 0.2rem 0.2rem rgb(0 0 0 / 0.3);
+
+	&:hover {
+		color: var(--clr-light-400);
+		translate: 0 -0.2rem;
+	}
+}

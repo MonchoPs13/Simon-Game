@@ -1,0 +1,49 @@
+.navigation {
+	position: fixed;
+	width: 100vw;
+	height: var(--nav-height);
+	bottom: 0;
+	background-color: var(--clr-primary-800);
+
+	@media (max-width: 46.875em) {
+		&__text {
+			display: none;
+		}
+	}
+
+	&__list {
+		max-width: 80rem;
+		margin-inline: auto;
+		height: 100%;
+		display: flex;
+		justify-content: space-around;
+		list-style: none;
+		font-size: 1.5rem;
+	}
+
+	&__link {
+		display: grid;
+		place-items: center;
+		height: 100%;
+
+		&--active,
+		&:hover,
+		&:focus {
+			color: var(--clr-active);
+
+			& > svg {
+				fill: var(--clr-active);
+			}
+		}
+	}
+
+	&__icon {
+		width: var(--size, 2rem);
+		aspect-ratio: 1;
+		margin-top: 0.5rem;
+	}
+
+	&__text {
+		margin-bottom: 0.5rem;
+	}
+}

@@ -1,0 +1,23 @@
+:root {
+	--clr-primary-400: hsl(217, 10%, 25%);
+	--clr-primary-600: hsl(220, 11%, 22%);
+	--clr-primary-800: hsl(218, 11%, 19%);
+
+	--clr-light-400: hsl(0, 0%, 93%);
+	--clr-light-100: hsla(0, 0%, 93%, 0.7);
+
+	--clr-green: hsl(156, 78%, 41%);
+	--clr-green-opaque: hsl(156, 78%, 41%, 0.4);
+	--clr-red: hsl(0, 84%, 64%);
+	--clr-red-opaque: hsl(0, 84%, 64%, 0.4);
+	--clr-blue: hsl(213, 47%, 47%);
+	--clr-blue-opaque: hsl(213, 47%, 47%, 0.4);
+	--clr-yellow: hsl(42, 100%, 71%);
+	--clr-yellow-opaque: hsl(42, 100%, 71%, 0.4);
+
+	--ff-headings: 'Poppins', sans-serif;
+	--ff-text: 'Inter', sans-serif;
+
+	// Sizing variables
+	--nav-height: 6rem;
+}

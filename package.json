@@ -1,0 +1,14 @@
+{
+	"name": "simon-game",
+	"version": "1.0.0",
+	"description": "Simon Game Online!",
+	"main": "index.js",
+	"scripts": {
+		"watch:sass": "sass --watch --no-source-map sass/main.scss public/styles.css"
+	},
+	"author": "Moncho",
+	"license": "ISC",
+	"devDependencies": {
+		"sass": "^1.55.0"
+	}
+}
