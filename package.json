@@ -4,7 +4,7 @@
 	"description": "Simon Game Online!",
 	"main": "index.js",
 	"scripts": {
-		"watch:sass": "sass --watch --no-source-map sass/main.scss public/styles.css"
+		"watch:sass": "sass --watch --no-source-map sass/main.scss styles.css"
 	},
 	"author": "Moncho",
 	"license": "ISC",

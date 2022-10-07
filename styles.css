@@ -300,7 +300,7 @@ svg:hover, svg:focus {
 }
 
 .navigation {
-  position: fixed;
+  position: absolute;
   width: 100vw;
   height: var(--nav-height);
   bottom: 0;
@@ -385,6 +385,10 @@ svg:hover, svg:focus {
   color: aqua;
 }
 
+#account-section {
+  translate: 100%;
+}
+
 #friends-section {
   translate: 200%;
 }
@@ -397,7 +401,6 @@ svg:hover, svg:focus {
   height: calc(100vh - var(--nav-height));
   display: flex;
   flex-direction: column;
-  translate: -100%;
 }
 
 .top-wrapper {
