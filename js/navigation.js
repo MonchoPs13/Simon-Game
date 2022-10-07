@@ -3,6 +3,8 @@ const sections = document.querySelectorAll('section');
 nav.addEventListener('click', pageChange);
 
 function pageChange(e) {
+	alert(e.target);
+	console.log(e.target);
 	if (e.target === this) return;
 	e.preventDefault();
 
