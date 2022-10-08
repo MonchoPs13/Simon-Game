@@ -1,8 +1,6 @@
 #play-section {
-	height: calc(100vh - var(--nav-height));
 	display: flex;
 	flex-direction: column;
-	// translate: -100%;
 }
 
 .top-wrapper {
@@ -108,23 +106,18 @@
 		&--green {
 			--tile-color: var(--clr-green);
 			--tile-color-opaque: var(--clr-green-opaque);
-			// rotate: 90deg;
 			transform: rotate(90deg);
 		}
 
 		&--red {
 			--tile-color: var(--clr-red);
 			--tile-color-opaque: var(--clr-red-opaque);
-
-			// rotate: 180deg;
 			transform: rotate(180deg);
 		}
 
 		&--blue {
 			--tile-color: var(--clr-blue);
 			--tile-color-opaque: var(--clr-blue-opaque);
-
-			// rotate: 270deg;
 			transform: rotate(270deg);
 		}
 

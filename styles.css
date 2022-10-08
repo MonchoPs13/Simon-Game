@@ -352,6 +352,7 @@ svg:hover, svg:focus {
   left: 0;
   display: flex;
   flex-direction: column;
+  will-change: translate;
   z-index: 8;
 }
 .section > header {
@@ -402,7 +403,6 @@ svg:hover, svg:focus {
 }
 
 #play-section {
-  height: calc(100vh - var(--nav-height));
   display: flex;
   flex-direction: column;
 }
