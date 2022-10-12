@@ -61,7 +61,8 @@ class Navigation {
 	_touchEnd() {
 		this.#sections.forEach(section => {
 			section.style.transition = 'translate 0.5s';
-			const currentTranslate = Number.parseInt(section.style.translate);
+			const currentTranslate =
+				Number.parseInt(section.style.translate) || section.dataset.translate;
 			const finalTranslate = Math.round(currentTranslate / 100) * 100;
 
 			section.style.translate = `${finalTranslate}%`;

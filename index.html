@@ -19,6 +19,8 @@
 		<!-- Scripts -->
 		<script src="./js/play.js" type="module" defer></script>
 		<script src="./js/navigation.js" type="module" defer></script>
+		<script src="./js/form.js" type="module" defer></script>
+		<script src="./js/theme.js" type="module" defer></script>
 		<title>Simon Game | Play</title>
 	</head>
 	<body>
@@ -92,21 +94,121 @@
 				<header>
 					<h2>Theme</h2>
 				</header>
+
+				<div class="section__body section__body--center">
+					<div class="theme">
+
+						<label for="input-1" class="theme__label" data-tile="0">
+							<input type="color" id="input-1">
+						</label>
+						<label for="input-2" class="theme__label" data-tile="1">
+							<input type="color" id="input-2">
+						</label>
+						<label for="input-3" class="theme__label" data-tile="2">
+							<input type="color" id="input-3">
+						</label>
+						<label for="input-4" class="theme__label" data-tile="3">
+							<input type="color" id="input-4">
+						</label>
+
+
+						<button class="button theme__button">Reset</button>
+					</div>
+				</div>
 			</section>
 			<section id="leaderboards-section" data-translate="-100" class="section">
 				<header>
 					<h2>Leaderboards</h2>
+					<div class="leaderboard-type">
+						<h3 class="leaderboard-type__option">Global</h3>
+						<span>|</span>
+						<h3 class="leaderboard-type__option leaderboard-type__option--inactive">Friends</h3>
+					</div>
 				</header>
+				<div class="section__body section__body--center">
+					<div class="leaderboard">
+						<div class="label">
+							<svg class="label__icon" style="fill: var(--clr-yellow)">
+								<use xlink:href="./img/sprite.svg#trophy"></use>
+							</svg>
+							<span class="label__text">Moncho</span>
+							<span class="label__text">30</span>
+						</div>
+						<div class="label">
+							<svg class="label__icon" style="fill: var(--clr-silver)">
+								<use xlink:href="./img/sprite.svg#trophy"></use>
+							</svg>
+							<span class="label__text">Santurron17</span>
+							<span class="label__text">28</span>
+						</div>
+						<div class="label">
+							<svg class="label__icon" style="fill: var(--clr-bronze)">
+								<use xlink:href="./img/sprite.svg#trophy"></use>
+							</svg>
+							<span class="label__text">MrBubbles</span>
+							<span class="label__text">25</span>
+						</div>
+						<div class="label">
+							<span class="label__text">4°</span>
+							<span class="label__text">Poncholate659</span>
+							<span class="label__text">20</span>
+						</div>
+						<div class="label">
+							<span class="label__text">5°</span>
+							<span class="label__text">iShowSpeed</span>
+							<span class="label__text">20</span>
+						</div>
+						<div class="label">
+							<span class="label__text">6°</span>
+							<span class="label__text">MrBeast</span>
+							<span class="label__text">20</span>
+						</div>
+						<div class="label">
+							<span class="label__text">7°</span>
+							<span class="label__text">CookieMonster</span>
+							<span class="label__text">20</span>
+						</div>
+						<div class="label">
+							<span class="label__text">8°</span>
+							<span class="label__text">Harry</span>
+							<span class="label__text">20</span>
+						</div>
+						<div class="label">
+							<span class="label__text">9°</span>
+							<span class="label__text">BonBalm</span>
+							<span class="label__text">20</span>
+						</div>
+						<div class="label">
+							<span class="label__text">10°</span>
+							<span class="label__text">Rea</span>
+							<span class="label__text">20</span>
+						</div>
+					</div>
+
+					<div class="label flex-row-center">
+						<svg class="label__icon" style="--clickable: all">
+							<use
+								xlink:href="./img/sprite.svg#cheveron-outline-left"
+							></use>
+						</svg>
+						<span class="label__text">1 / 2</span>
+						<svg class="label__icon" style="--clickable: all">
+							<use
+								xlink:href="./img/sprite.svg#cheveron-outline-right"
+							></use>
+						</svg>
+					</div>
+				</div>
 			</section>
 			<section id="play-section" data-translate="0" class="section">
 				<div class="top-wrapper">
 					<div class="play-buttons">
-						<button class="play-buttons__btn circle" data-volume="on">
+						<button class="play-buttons__btn circle" data-volume="on" tabindex="-1">
 							<svg class="play-buttons__icon">
 								<use xlink:href="./img/sprite.svg#volume-up"></use>
 							</svg>
 						</button>
-						<button class="play-buttons__btn circle">
+						<button class="play-buttons__btn circle" tabindex="-1">
 							<svg class="play-buttons__icon">
 								<use xlink:href="./img/sprite.svg#theme"></use>
 							</svg>
@@ -135,14 +237,14 @@
 							data-audio="Beep2.wav"
 						></div>
 						<div
-							class="simon-game__tile simon-game__tile--blue circle"
-							data-tile="3"
-							data-audio="Beep3.wav"
-						></div>
-						<div
 							class="simon-game__tile simon-game__tile--yellow circle"
 							data-tile="4"
 							data-audio="Beep4.wav"
+						></div>
+						<div
+							class="simon-game__tile simon-game__tile--blue circle"
+							data-tile="3"
+							data-audio="Beep3.wav"
 						></div>
 						<div class="simon-game__inner-circle circle">
 							<span>Start</span>
@@ -209,7 +311,7 @@
 					>
 						<header class="flex-row-center">
 							<h3>Personal Info</h3>
-							<svg class="">
+							<svg data-form-toggle="account">
 								<use xlink:href="./img/sprite.svg#pencil"></use>
 							</svg>
 						</header>
@@ -229,7 +331,7 @@
 				</div>
 
 				<div class="form-modal hidden">
-					<form action="" class="form">
+					<form action="" class="form" id="form-account">
 						<svg class="form__close">
 							<use xlink:href="./img/sprite.svg#cross"></use>
 						</svg>
@@ -296,6 +398,136 @@
 				<header>
 					<h2>Friends</h2>
 				</header>
+				<div class="section__body">
+					<section class="section__info" data-grid-responsive="true">
+						<section class="section__column flex-column">
+							<header><h3>Friends</h3></header>
+							<div class="label">
+								<svg class="label__icon">
+									<use xlink:href="./img/sprite.svg#user"></use>
+								</svg>
+								<span class="label__text">Moncho</span>
+							</div>
+							<div class="label">
+								<svg class="label__icon">
+									<use xlink:href="./img/sprite.svg#user"></use>
+								</svg>
+								<span class="label__text">Santurron17</span>
+							</div>
+							<div class="label">
+								<svg class="label__icon">
+									<use xlink:href="./img/sprite.svg#user"></use>
+								</svg>
+								<span class="label__text">MrBubbles</span>
+							</div>
+							<div class="label">
+								<svg class="label__icon">
+									<use xlink:href="./img/sprite.svg#user"></use>
+								</svg>
+								<span class="label__text">Poncholate659</span>
+							</div>
+							<div class="label flex-row-center">
+								<svg class="label__icon" style="--clickable: all">
+									<use
+										xlink:href="./img/sprite.svg#cheveron-outline-left"
+									></use>
+								</svg>
+								<span class="label__text">1 / 2</span>
+								<svg class="label__icon" style="--clickable: all">
+									<use
+										xlink:href="./img/sprite.svg#cheveron-outline-right"
+									></use>
+								</svg>
+							</div>
+						</section>
+						<section class="section__column flex-column">
+							<header>
+								<h3>Pending</h3>
+							</header>
+							<div class="label">
+								<svg class="label__icon">
+									<use xlink:href="./img/sprite.svg#user"></use>
+								</svg>
+								<span class="label__text">Santurron17</span>
+							</div>
+
+							<div class="label">
+								<svg class="label__icon" style="--clickable: all">
+									<use
+										xlink:href="./img/sprite.svg#cheveron-outline-left"
+									></use>
+								</svg>
+								<span class="label__text">1 / 2</span>
+								<svg class="label__icon" style="--clickable: all">
+									<use
+										xlink:href="./img/sprite.svg#cheveron-outline-right"
+									></use>
+								</svg>
+						</section>
+					</section>
+					<div class="label flex-row-center" data-form-toggle="friends" style="margin-top: 1rem">
+						<span class="label__text">Add Friends</span>
+						<svg class="label__icon" style="--clickable: all">
+							<use xlink:href="./img/sprite.svg#add"></use>
+						</svg>
+					</div>
+				</div>
+
+				<div class="form-modal hidden">
+					<form action="/" class="form" data-form="add-friends" id="form-friends">
+						<svg class="form__close">
+							<use xlink:href="./img/sprite.svg#cross"></use>
+						</svg>
+						<header class="form__header">
+							<h2 class="form__heading">Add Friends</h2>
+						</header>
+
+						<section class="form__body">
+							<div class="form__search">
+								<svg>
+									<use xlink:href="./img/sprite.svg#search"></use>
+								</svg>
+								<input type="text" placeholder="Username" required>
+							</div>
+							<div class="label label--add-friend" style="margin-top: 1rem">
+								<svg class="label__icon" style="--clickable: all">
+									<use xlink:href="./img/sprite.svg#user"></use>
+								</svg>
+								<span class="label__text">Moncho</span>
+								<svg class="label__icon" style="--clickable: all">
+									<use xlink:href="./img/sprite.svg#add"></use>
+								</svg>
+							</div>
+							<div class="label label--add-friend" style="margin-top: 1rem">
+								<svg class="label__icon" style="--clickable: all">
+									<use xlink:href="./img/sprite.svg#user"></use>
+								</svg>
+								<span class="label__text">Santurron17</span>
+								<svg class="label__icon" style="--clickable: all">
+									<use xlink:href="./img/sprite.svg#add"></use>
+								</svg>
+							</div>
+							<div class="label label--add-friend" style="margin-top: 1rem">
+								<svg class="label__icon" style="--clickable: all">
+									<use xlink:href="./img/sprite.svg#user"></use>
+								</svg>
+								<span class="label__text">MrBubbles</span>
+								<svg class="label__icon" style="--clickable: all">
+									<use xlink:href="./img/sprite.svg#add"></use>
+								</svg>
+							</div>
+							<div class="label label--add-friend" style="margin-top: 1rem">
+								<svg class="label__icon" style="--clickable: all">
+									<use xlink:href="./img/sprite.svg#user"></use>
+								</svg>
+								<span class="label__text">Poncholate659</span>
+								<svg class="label__icon" style="--clickable: all">
+									<use xlink:href="./img/sprite.svg#add"></use>
+								</svg>
+							</div>
+						</section>
+					</form>
+				</div>
 			</section>
 		</main>
 

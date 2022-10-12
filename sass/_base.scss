@@ -73,6 +73,9 @@ svg {
 	fill: var(--clr-light-100);
 	aspect-ratio: 1;
 	// pointer-events: none;
+	& > use {
+		pointer-events: none;
+	}
 
 	&:hover,
 	&:focus {
@@ -98,6 +101,11 @@ svg {
 	justify-content: center;
 }
 
+.flex-column {
+	display: flex;
+	flex-direction: column;
+}
+
 .flex-column-center {
 	display: flex;
 	flex-direction: column;
@@ -110,6 +118,11 @@ svg {
 	flex-direction: column;
 	align-items: center;
 	justify-content: space-between;
+}
+
+.grid-columns {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
 }
 
 .circle {

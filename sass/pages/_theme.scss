@@ -1,3 +1,51 @@
-#theme-section {
-    translate: -200%;
+.theme {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	place-items: center;
+	width: fit-content;
+	margin: auto;
+	gap: 1rem;
+
+	&__label {
+		display: inline-block;
+		width: clamp(8rem, 20vw, 10rem);
+		aspect-ratio: 1;
+		border-radius: 0.5rem;
+		background-color: var(--current-clr, red);
+		position: relative;
+		cursor: pointer;
+
+		&:hover {
+			outline: 3px solid var(--clr-light-400);
+		}
+
+		&:nth-child(1) {
+			--current-clr: var(--clr-green);
+		}
+
+		&:nth-child(2) {
+			--current-clr: var(--clr-red);
+		}
+
+		&:nth-child(3) {
+			--current-clr: var(--clr-yellow);
+		}
+
+		&:nth-child(4) {
+			--current-clr: var(--clr-blue);
+		}
+
+		& > input {
+			position: absolute;
+			bottom: 0;
+			left: 50%;
+			z-index: -1;
+			width: 0;
+		}
+	}
+
+	&__button {
+		margin-top: 1rem;
+		grid-column: span 2;
+	}
 }

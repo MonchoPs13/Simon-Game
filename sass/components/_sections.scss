@@ -1,3 +1,19 @@
+#theme-section {
+	translate: -200%;
+}
+
+#leaderboards-section {
+	translate: -100%;
+}
+
+#account-section {
+	translate: 100%;
+}
+
+#friends-section {
+	translate: 200%;
+}
+
 .section {
 	position: absolute;
 	width: 100%;
@@ -22,12 +38,18 @@
 		translate: -100% 0;
 	}
 
+	&__body {
+		&--center {
+			margin-block: auto;
+		}
+	}
+
 	&__info {
 		gap: 1rem;
 		position: relative;
 		width: min(80%, 60rem);
 		margin: auto;
-		padding-block: 1rem;
+		padding: 1rem;
 
 		&:not(:last-child) {
 			border-bottom: 3px solid var(--clr-light-400);
@@ -36,16 +58,60 @@
 		&--center {
 			text-align: center;
 		}
+
+		&[data-grid-responsive='true'] {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+
+			@media (max-width: 31.5em) {
+				display: flex;
+				flex-direction: column;
+				border: none;
+
+				& > .section__column {
+					align-items: center;
+					border-bottom: 3px solid var(--clr-light-400);
+					padding-bottom: 1rem;
+				}
+			}
+		}
+	}
+
+	&__column {
+		gap: 1rem;
+		align-items: flex-start;
+
+		&:last-child {
+			align-items: flex-end;
+		}
+
+		& > .label {
+			display: flex;
+			align-items: center;
+
+			&:last-child {
+				margin-top: auto;
+			}
+		}
 	}
 }
 
 .label {
 	gap: 0.5rem;
 
+	&--add-friend {
+		display: flex;
+		align-items: center;
+
+		& > :last-child {
+			margin-left: auto;
+		}
+	}
+
 	&__icon {
-		width: 1.5rem;
+		width: clamp(1rem, 3vw, 1.5rem);
 		aspect-ratio: 1;
-		pointer-events: none;
+		pointer-events: var(--clickable, none);
 	}
 
 	&__info {
