@@ -1,0 +1,63 @@
+header 
+    h2 Account 
+.section__body 
+    if (user)
+        section.section__info.section__info--center.flex-column-center 
+            header 
+                h3 Stats 
+            .label.flex-row-center 
+                svg.label__icon 
+                    use(xlink:href='/img/sprite.svg#user-group')
+                span.label__text= `${user.friends.length} Friends`
+            .label.flex-row-center 
+                svg.label__icon 
+                    use(xlink:href='/img/sprite.svg#trophy')
+                span.label__text= 'Highscore: '
+                    span(id='highscoreLabel')= user.highscore
+        
+        section.section__info.section__info--center.flex-column-center 
+            header.flex-row-center 
+                h3 Personal Info 
+                svg(data-form-toggle='account')
+                    use(xlink:href='/img/sprite.svg#pencil')
+            .label.flex-row-center 
+                span.label__text Email 
+                span.label__info= user.email
+            .label.flex-row-center
+                span.label__text Password 
+                span.label__info *********
+            .label.flex-row-center 
+                span.label__text Username 
+                span.label__info= user.username
+            a.button.button--logout(href='/api/v1/auth/logout') Log Out 
+    else 
+        section.section__info
+            div(style='text-align: center') You need to be 
+                a.link(href='/login' style='--link-color: var(--clr-yellow)') logged in 
+                | to access your account!
+
+if (user)
+    .form-modal.hidden 
+        form.form(action='/api/v1/auth/updateUserPassword' method='PATCH' id='form-account' data-reload='true')
+            svg.form__close 
+                use(xlink:href='/img/sprite.svg#cross')
+            header.form__header 
+                h2.form__heading Edit Info
+
+            section.form__body 
+                .form__group 
+                    label.form__label(for='username') Username 
+                    input.form__input(type='text' value=`${user.username}` id='username' name='username')
+                .form__group 
+                    label.form__label(for='currentPassword') Current password 
+                    input.form__input(type='password' id='currentPassword' name='passwordCurrent' placeholder='*******')
+                .form__group 
+                    label.form__label(for='newPassword') New password 
+                    input.form__input(type='password' id='newPassword' name='password' placeholder='*******')
+                .form__group 
+                    label.form__label(for='confirmPassword') Confirm password 
+                    input.form__input(type='password' id='confirmPassword' name='passwordConfirm' placeholder='*******')
+
+            .form__buttons 
+                button.button Submit
+                

@@ -1,0 +1,19 @@
+doctype html
+html(lang="en")
+    include _head
+
+    body 
+        include _navigation
+
+        main(data-user=`${user ? user._id : undefined}`)
+            section.section(id="theme-section" data-translate="-200")
+                include _theme
+            section.section(id="leaderboards-section" data-translate='-100')
+                include _leaderboards
+            section.section(id='play-section' data-translate='0')
+                include _play
+            section.section(id='account-section' data-translate='100')
+                include _account
+            section.section(id='friends-section' data-translate='200')
+                include _friends
+        include _background

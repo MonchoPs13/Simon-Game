@@ -4,6 +4,7 @@
 
 #leaderboards-section {
 	translate: -100%;
+	overflow-y: auto;
 }
 
 #account-section {
@@ -12,6 +13,8 @@
 
 #friends-section {
 	translate: 200%;
+	overflow-x: hidden;
+	overflow-y: auto;
 }
 
 .section {
@@ -27,7 +30,7 @@
 	z-index: 8;
 
 	& > header {
-		margin-bottom: 2rem;
+		margin-bottom: 2vmin;
 	}
 
 	&.inactive-right {
@@ -85,12 +88,20 @@
 			align-items: flex-end;
 		}
 
-		& > .label {
-			display: flex;
-			align-items: center;
+		& .container {
+			&:where(.label) {
+				height: 24vh;
+			}
 
-			&:last-child {
-				margin-top: auto;
+			@media (max-width: 31.5em) {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+			}
+
+			& > .label {
+				display: flex;
+				align-items: center;
 			}
 		}
 	}
@@ -109,7 +120,7 @@
 	}
 
 	&__icon {
-		width: clamp(1rem, 3vw, 1.5rem);
+		width: clamp(1rem, 3vmin, 1.5rem);
 		aspect-ratio: 1;
 		pointer-events: var(--clickable, none);
 	}

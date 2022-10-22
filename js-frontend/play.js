@@ -3,11 +3,13 @@ import {
 	SIMON_GAME_STEP_DURATION,
 } from './config.js';
 
-class SimonGame {
+export class SimonGame {
 	#startBtn = document.querySelector('.simon-game__inner-circle');
 	#simonGameContainer = document.querySelector('.simon-game__outer-circle');
 	#simonGameCross = document.querySelector('.simon-game__cross');
 	#scoreElement = document.querySelector('.game-score__score');
+	#formElement = document.querySelector('#form-play');
+	#highscoreLabel = document.querySelector('#highscoreLabel');
 
 	constructor() {
 		this.#startBtn.addEventListener('click', this.startGame.bind(this));
@@ -21,6 +23,13 @@ class SimonGame {
 		);
 		this.errorAudio = new Audio(`../audios/error.wav`);
 		this.volumeBtn = document.querySelector('[data-volume]');
+
+		if (this.#highscoreLabel)
+			window.localStorage.setItem(
+				'highscore',
+				this.#highscoreLabel.textContent
+			);
+
 		this._initVariables();
 	}
 
@@ -93,7 +102,39 @@ class SimonGame {
 			this.#simonGameCross.style.display = 'none';
 			this.#startBtn.classList.remove('simon-game__inner-circle--inactive');
 		}, SIMON_GAME_CROSS_DURATION);
+		if (this.score !== 0) this._checkHighscore();
 		this._initVariables();
+	}
+
+	_checkHighscore() {
+		const highscore = window.localStorage.getItem('highscore');
+
+		if (highscore && highscore >= this.score) return;
+
+		window.localStorage.setItem('highscore', this.score);
+
+		if (this.#highscoreLabel)
+			highscoreLabel.textContent = `Highscore: ${this.score}`;
+
+		this.#formElement.querySelector('.form__header span').textContent = String(
+			this.score
+		).padStart(2, '0');
+
+		const userID = document.querySelector('main').dataset.user;
+		if (userID !== 'undefined')
+			fetch('/api/v1/users/updateUser', {
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				method: 'PATCH',
+				body: JSON.stringify({
+					highscore: this.score,
+				}),
+			})
+				.then(data => data.json())
+				.then(data => console.log(data));
+
+		this.#formElement.closest('.form-modal').classList.toggle('hidden');
 	}
 
 	_applyStyles(tile, correct = true, userClick = false) {
@@ -158,4 +199,20 @@ playButtons.addEventListener('click', function (e) {
 	}
 });
 
-const simonGame = new SimonGame();
+const playForm = document.querySelector('#form-play');
+playForm.addEventListener('submit', function (e) {
+	e.preventDefault();
+
+	if (e.submitter.textContent === 'Log In') window.location = '/login';
+	else this.closest('.form-modal').classList.toggle('hidden');
+});
+
+playForm.addEventListener('click', function (e) {
+	if (!e.target.classList.contains('link')) return;
+	e.preventDefault();
+
+	this.closest('.form-modal').classList.toggle('hidden');
+	document
+		.querySelector('.navigation__link[href="#leaderboards-section"]')
+		.click();
+});

@@ -1,34 +1,34 @@
 .leaderboard-type {
 	&__option {
 		display: inline-block;
-        cursor: pointer;
+		cursor: pointer;
 
 		&--inactive {
 			color: var(--clr-light-100);
 
-            &:hover {
-                color: var(--clr-light-400);
-            }
+			&:hover {
+				color: var(--clr-light-400);
+			}
 		}
 	}
 }
 
 .leaderboard {
-	width: min(80%, 60rem);
-	// background-color: orangered;
+	width: clamp(20rem, 90vmin, 60rem);
+	min-height: 50vh;
 	margin-inline: auto;
 
 	& .label {
-        padding: .5em 1rem;
-        display: flex;
-        align-items: center;
+		padding: 0.5em 1rem;
+		display: flex;
+		align-items: center;
 
 		&:not(:last-child) {
 			border-bottom: 2px solid var(--clr-light-400);
 		}
 
-        &__text:last-child {
-            margin-left: auto;
-        }
+		&__text:last-child {
+			margin-left: auto;
+		}
 	}
 }

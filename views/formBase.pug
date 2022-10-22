@@ -1,0 +1,23 @@
+extends authBase
+
+block script 
+    script(src='/js/form.js' defer type='module')
+
+mixin createInput(id, type, text, placeholder)
+    .form__group 
+        label(for=`${id}` class='form__label')= text
+        input(type=`${type}` class='form__input' placeholder=`${placeholder}` id=`${id}` name=`${id}` required)
+
+block content
+    form(action=`${action}` class='form' id=`${id}` method=`${method || 'POST'}`)
+        if (close)
+            svg.form__close 
+                use(xlink:href='/img/sprite.svg#cross')
+        header.form__header 
+            h2.form__heading= title
+
+        section.form__body 
+            block formBody 
+        .form__buttons
+            block formButtons
+                button.button Submit

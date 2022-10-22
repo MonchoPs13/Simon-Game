@@ -1,0 +1,42 @@
+.top-wrapper 
+    .play-buttons 
+        button.play-buttons__btn.circle(data-volume='on' tabindex='-1')
+            svg.play-buttons__icon 
+                use(xlink:href='/img/sprite.svg#volume-up')
+    header 
+        h1 Play
+
+    .game-score.circle 
+        span.game-score__score 00
+
+section.simon-game 
+    .simon-game__outer-circle.circle 
+        each value, index in ['green', 'red', 'yellow', 'blue']
+            .simon-game__tile.circle(class=`simon-game__tile--${value}` data-tile=`${index + 1}` data-audio=`Beep${index + 1}.wav`)
+
+        .simon-game__inner-circle.circle 
+            span Start
+
+        svg.simon-game__cross.absolute-center 
+            use(xlink:href='/img/sprite.svg#cross') 
+
+.form-modal.hidden
+    form.form(action='/login' method='GET' id='form-play')
+        svg.form__close 
+            use(xlink:href='/img/sprite.svg#cross')
+        header.form__header 
+            h2.form__heading Highscore! 
+            span 00
+
+        section.form__body 
+            if (user)
+                p You've reached a new highscore, you should pay a visit to the 
+                a.link(href='#leaderboards-section' style='--link-color: var(--clr-green)') leaderboards!
+            else 
+                p You need to be logged in to save your highscore globally!
+        .form__buttons 
+            if (user)
+                button.button Play Again
+            else 
+                button.button Log In
+                button.button Maybe Later

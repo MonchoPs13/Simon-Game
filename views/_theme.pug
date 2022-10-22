@@ -1,0 +1,9 @@
+header 
+    h2 Theme
+
+.section__body.section__body--center
+    .theme 
+        each value in [1, 2, 3, 4]
+            label(for=`input-${value}` data-tile=`${value - 1}`).theme__label
+                input(type='color' id=`input-${value}`)
+        button.button.theme__button Reset

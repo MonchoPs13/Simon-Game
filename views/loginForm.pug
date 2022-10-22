@@ -1,0 +1,12 @@
+extends formBase 
+
+block formBody 
+    +createInput('username', 'text', 'Username', 'Username')
+    +createInput('password', 'password', 'Password', '*******')
+    p Don't have an account? 
+        a(class='link' style='--link-color: var(--clr-green)' href='/signup') Sign up 
+        | or 
+        a.link(style='--link-color: var(--clr-yellow)' href='/forgotPassword') Reset password
+
+block formButtons 
+    button.button Log In

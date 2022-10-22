@@ -5,6 +5,7 @@
 
 	--clr-light-400: hsl(0, 0%, 93%);
 	--clr-light-100: hsla(0, 0%, 93%, 0.7);
+	--clr-light-50: hsl(0, 0%, 42%);
 
 	--clr-green: hsl(156, 78%, 41%);
 	--clr-green-opaque: hsl(156, 78%, 41%, 0.4);
@@ -22,5 +23,6 @@
 	--ff-text: 'Inter', sans-serif;
 
 	// Sizing variables
-	--nav-height: 6rem;
+	// --nav-height: 6rem;
+	--nav-height: clamp(4rem, 10vmin, 6rem);
 }

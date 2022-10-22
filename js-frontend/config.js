@@ -1,0 +1,4 @@
+export const SIMON_GAME_STEP_DURATION = 800;
+export const SIMON_GAME_CROSS_DURATION = 500;
+export const ALERT_DURATION = 2000;
+export const FRIEND_DEBOUNCE_DURATION = 750;

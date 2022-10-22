@@ -1,0 +1,83 @@
+mixin createFriendLabel(username)
+    .label 
+        svg.label__icon 
+            use(xlink:href='/img/sprite.svg#user')
+        span.label__text= username
+
+mixin createPendingLabel(username)
+    .label
+        svg.label__icon
+            use(xlink:href='/img/sprite.svg#user')
+        span.label__text= username
+        svg.label__icon(style='--clickable: all' data-add-friend='accept')
+            use(xlink:href='/img/sprite.svg#checkmark-outline')
+        svg.label__icon(style='--clickable: all' data-add-friend='deny')
+            use(xlink:href='/img/sprite.svg#close-outline')
+
+
+header 
+    h2 Friends
+.section__body 
+    if (user)
+        - const friendList = [];
+        each friend in user.friends
+            - friendList.push(friend.username);
+        - const pendingList = [];
+        each pending in user.friendsAccept 
+            -pendingList.push(pending.username);
+
+        section.section__info(data-grid-responsive='true')
+            section.section__column.flex-column(id='friends-column')
+                header 
+                    h3 Friends 
+                .container.flex-column(data-list=`${JSON.stringify(friendList)}` id='friends-container')
+                    each value in [0, 1, 2, 3, 4]
+                        if (friendList[value])
+                            +createFriendLabel(friendList[value])
+                .label.flex-row-center(id='friends-paginator')
+                    svg.label__icon.inactive(style='--clickable: all' data-to='left')
+                        use(xlink:href='/img/sprite.svg#cheveron-outline-left')
+                    span.label__text 1 / 1
+                    svg.label__icon.inactive(style='--clickable: all' data-to='right')
+                        use(xlink:href='/img/sprite.svg#cheveron-outline-right')
+
+            section.section__column.flex-column(id='pending-column') 
+                header 
+                    h3 Pending
+                .container(data-list=`${JSON.stringify(pendingList)}` id='pending-container')
+                    each value in [0, 1, 2, 3, 4]
+                        if (pendingList[value])
+                            +createPendingLabel(pendingList[value])
+                .label.flex-row-center(id='pending-paginator')
+                    svg.label__icon.inactive(style='--clickable: all' data-to='left')
+                        use(xlink:href='/img/sprite.svg#cheveron-outline-left')
+                    span.label__text 1 / 1
+                    svg.label__icon.inactive(style='--clickable: all' data-to='right')
+                        use(xlink:href='/img/sprite.svg#cheveron-outline-right')
+
+        .label.flex-row-center(data-form-toggle='friends' style='margin-top: 1rem')
+            span.label__text Add Friends 
+            svg.label__icon(style='--clickable: all')
+                use(xlink:href='/img/sprite.svg#add')
+
+    else 
+        div(style='text-align: center') You need to be 
+            a.link(href='/login' style='--link-color: var(--clr-blue)') logged in 
+            | to view your friends
+
+if (user) 
+    .form-modal.hidden 
+        form.form(action='/api/v1/users/sendFriendRequest' method='POST' id='form-friends' data-form='add-friends')
+            svg.form__close 
+                use(xlink:href='/img/sprite.svg#cross')
+            svg.form__loading.absolute-center.hidden 
+                use(xlink:href='/img/sprite.svg#load')
+            header.form__header 
+                h2 Add Friends   
+
+            section.form__body 
+                .form__search 
+                    svg
+                        use(xlink:href='/img/sprite.svg#search')  
+                    input(type='text' placeholder='username')   
+                .form__user-container   

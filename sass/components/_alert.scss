@@ -1,0 +1,32 @@
+.alert {
+	position: absolute;
+	top: 0;
+	left: 50%;
+	translate: -50%;
+	text-align: center;
+	padding: 0.5em 1em;
+	min-width: 30vw;
+	border-radius: 0 0 1rem 1rem;
+	color: var(--clr-light-400);
+	animation: drop-down 0.1s ease-in;
+	animation-play-state: initial;
+	pointer-events: none;
+	z-index: 20;
+
+	&--success {
+		background-color: var(--clr-green);
+	}
+
+	&--error {
+		background-color: var(--clr-red);
+	}
+}
+
+@keyframes drop-down {
+	from {
+		transform: translateY(-100%);
+	}
+	to {
+		transform: none;
+	}
+}

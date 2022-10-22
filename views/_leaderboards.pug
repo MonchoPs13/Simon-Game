@@ -1,0 +1,15 @@
+header 
+    h2 Leaderboards 
+    .leaderboard-type 
+        h3.leaderboard-type__option Global
+        span |
+        h3.leaderboard-type__option.leaderboard-type__option--inactive Friends
+
+.section__body.section__body--center 
+    .leaderboard 
+    .label.flex-row-center(id='leaderboards-paginator') 
+        svg.label__icon(style='--clickable: all' data-to='left')
+            use(xlink:href='/img/sprite.svg#cheveron-outline-left' data-to='left')
+        span.label__text 1 / 1
+        svg.label__icon(style='--clickable: all' data-to='right')
+            use(xlink:href='/img/sprite.svg#cheveron-outline-right' data-to='right')

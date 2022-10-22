@@ -4,8 +4,9 @@
 	height: var(--nav-height);
 	bottom: 0;
 	background-color: var(--clr-primary-800);
+	// z-index: 20;
 
-	@media (max-width: 46.875em) {
+	@media (max-width: 46.875em), (max-height: 43.75em) {
 		&__text {
 			display: none;
 		}
@@ -17,7 +18,7 @@
 		height: 100%;
 		display: flex;
 		list-style: none;
-		font-size: 1.5rem;
+		// font-size: 1.5rem;
 	}
 
 	&__item {

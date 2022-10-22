@@ -36,7 +36,7 @@ body {
 body {
 	background-color: var(--clr-primary-600);
 	height: 100vh;
-	font-size: clamp(1rem, 3vw, 1.5rem);
+	font-size: clamp(1rem, 3vmin, 1.5rem);
 	font-family: var(--ff-text);
 	color: var(--clr-light-100);
 	overflow: hidden;
@@ -61,7 +61,7 @@ label {
 
 h1,
 h2 {
-	font-size: clamp(3rem, 10vw, 5rem);
+	font-size: clamp(3rem, 10vmin, 5rem);
 }
 
 h3 {
@@ -72,7 +72,7 @@ h3 {
 svg {
 	fill: var(--clr-light-100);
 	aspect-ratio: 1;
-	// pointer-events: none;
+
 	& > use {
 		pointer-events: none;
 	}
@@ -80,6 +80,11 @@ svg {
 	&:hover,
 	&:focus {
 		fill: var(--clr-light-400);
+	}
+
+	&.inactive {
+		fill: var(--clr-light-50);
+		pointer-events: none;
 	}
 }
 
@@ -104,6 +109,7 @@ svg {
 .flex-column {
 	display: flex;
 	flex-direction: column;
+	gap: 1rem;
 }
 
 .flex-column-center {

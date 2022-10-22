@@ -1,0 +1,14 @@
+mixin createNavItem(text, color, icon, size, active)
+    li.navigation__item
+        a.navigation__link(href=`#${text.toLowerCase()}-section` style=`--clr-active: var(--clr-${color})` class=`${active ? 'navigation__link--active' : ''}`)
+            svg.navigation__icon(style=`${size ? `--size:${size}` : ''}`)
+                use(xlink:href=`img/sprite.svg#${icon}`)
+            p.navigation__text= text
+
+nav.navigation 
+    ul.navigation__list 
+        +createNavItem('Theme', 'light-400', 'eye')
+        +createNavItem('Leaderboards', 'green', 'stats')
+        +createNavItem('Play', 'red', 'play', '2.5rem', true)
+        +createNavItem('Account', 'yellow', 'user')
+        +createNavItem('Friends', 'blue', 'user-add', '3rem')

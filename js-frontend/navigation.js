@@ -1,4 +1,4 @@
-class Navigation {
+export class Navigation {
 	#navElement = document.querySelector('.navigation__list');
 	#sections = document.querySelectorAll('.section');
 
@@ -27,6 +27,7 @@ class Navigation {
 		const clickedSection = document.querySelector(
 			clickedLink.getAttribute('href')
 		);
+		this.currentSection = clickedSection;
 		const translateValue = Number(clickedSection.dataset.translate);
 
 		this.#sections.forEach(section => {
@@ -79,5 +80,3 @@ class Navigation {
 		this.startX = 0;
 	}
 }
-
-const nav = new Navigation();

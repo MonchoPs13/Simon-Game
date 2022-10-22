@@ -1,0 +1,10 @@
+extends formBase 
+
+block formBody 
+    +createInput('username', 'text', 'Username', 'Username')
+    +createInput('email', 'email', 'Email', 'Email')
+    +createInput('password', 'password', 'Password', '*******')
+    +createInput('passwordConfirm', 'password', 'Confirm Password', '*******')
+
+block formButtons 
+    button.button Sign Up

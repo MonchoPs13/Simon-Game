@@ -2,13 +2,40 @@
 	"name": "simon-game",
 	"version": "1.0.0",
 	"description": "Simon Game Online!",
-	"main": "index.js",
+	"private": true,
 	"scripts": {
-		"watch:sass": "sass --watch --no-source-map sass/main.scss styles.css"
+		"start": "nodemon server.js",
+		"watch:sass": "sass --watch --no-source-map sass/main.scss public/styles.css",
+		"compress:css": "sass --no-source-map sass/main.scss public/styles.css --style compressed",
+		"prefix:css": "postcss public/styles.css -u autoprefixer -r --no-map",
+		"build:css": "npm-run-all compress:css prefix:css",
+		"build:webpack": "webpack"
 	},
 	"author": "Moncho",
 	"license": "ISC",
+	"dependencies": {
+		"autoprefixer": "^10.4.12",
+		"bcrypt": "^5.1.0",
+		"compression": "^1.7.4",
+		"cookie-parser": "^1.4.6",
+		"dotenv": "^16.0.3",
+		"express": "^4.18.2",
+		"express-mongo-sanitize": "^2.2.0",
+		"express-rate-limit": "^6.6.0",
+		"helmet": "^6.0.0",
+		"jsonwebtoken": "^8.5.1",
+		"mongoose": "^6.6.5",
+		"morgan": "^1.10.0",
+		"nodemailer": "^6.8.0",
+		"postcss-cli": "^10.0.0",
+		"pug": "^3.0.2",
+		"sass": "^1.55.0",
+		"xss-clean": "^0.1.1"
+	},
 	"devDependencies": {
-		"sass": "^1.55.0"
+		"nodemon": "^2.0.20",
+		"npm-run-all": "^4.1.5",
+		"webpack": "^5.74.0",
+		"webpack-cli": "^4.10.0"
 	}
 }

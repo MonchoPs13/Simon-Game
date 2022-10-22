@@ -5,15 +5,17 @@
 	background-color: rgb(0 0 0 / 0.5);
 	display: grid;
 	place-items: center;
+	z-index: 25;
 }
 
 .form {
 	width: clamp(20rem, 80vw, 40rem);
+	max-height: 98vh;
 	position: relative;
-	padding-block: 1rem 5rem;
+	padding-block: 1rem 4rem;
 	display: flex;
 	flex-direction: column;
-	gap: clamp(2rem, 5vw, 4rem);
+	gap: clamp(2rem, 5vmin, 4rem);
 	background-color: var(--clr-primary-400);
 	border-radius: 1rem;
 
@@ -47,10 +49,10 @@
 
 	&__input {
 		background-color: var(--clr-primary-800);
-		padding: .5rem 1em;
-		border-radius: .3em;
+		padding: 0.5rem 1em;
+		border-radius: 0.3em;
 		width: 100%;
-		margin-top: .5em;
+		margin-top: 0.5em;
 		border: 3px solid transparent;
 
 		&:focus {
@@ -72,10 +74,18 @@
 		width: clamp(1rem, 4.5vw, 2rem);
 	}
 
+	&__loading {
+		width: 25%;
+		pointer-events: none;
+		fill: var(--clr-light-400);
+		margin-top: 3rem;
+		animation: rotate 750ms linear infinite;
+	}
+
 	&__search {
 		background-color: var(--clr-primary-800);
 		border-radius: 5rem;
-		padding: .5rem;
+		padding: 0.5rem;
 		position: relative;
 		margin-bottom: 3rem;
 
@@ -102,5 +112,11 @@
 				outline: none;
 			}
 		}
+	}
+}
+
+@keyframes rotate {
+	to {
+		rotate: 360deg;
 	}
 }
